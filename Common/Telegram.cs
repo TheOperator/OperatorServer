@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Collections.Generic;
 
-namespace monoServer
+namespace OperatorServer
 {
 	public class Telegram : CollectionBase
 	{
@@ -141,20 +141,20 @@ namespace monoServer
 			return tmp;
 		}
 		
-		/*
-		public String toString()
+		
+		public String ToString()
 		{
 			long time = System.DateTime.Now.Ticks;
 			String t = this._type + ";" + this._key + ";" + time.ToString() + ";" + this._keyword + ";";
 			t += this.getParamsAsString();
-			t += DataManager.getMD5(t);
+			t += ValueManager.GetMD5(t);
 			
 			int num_chars = t.Length;
 			t = num_chars.ToString() + ";" + t;
 			
 			return t;
 		}
-		*/
+		
 		
 		public string serialize()
 		{
@@ -192,7 +192,7 @@ namespace monoServer
 				break;
 			}
 			
-			sb.Append(DataManager.getMD5(sb));
+			sb.Append(ValueManager.GetMD5(sb));
 			sb.Insert(0, ";");
 			sb.Insert(0, sb.Length-1);
 			
